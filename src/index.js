@@ -37,6 +37,13 @@ const resolvers = {
 		    return linkValue
 		})
 	    return value[0]
+	},
+	deleteLink: (parent, { id }) => {
+	    let index = links.findIndex(linkObject => linkObject.id === id)
+	    if (index !== -1) {
+		let linkValue = links.splice(index, 1)
+		return linkValue[0]
+	    }
 	}
     },
     Link: {
