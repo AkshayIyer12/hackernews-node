@@ -3,6 +3,8 @@ type Link {
      postedBy: User
      description: String!
      url: String!
+     createdAt: DateTime!
+     votes: [Vote!]!
 }
 
 type User {
@@ -11,4 +13,11 @@ type User {
      email: String! @unique
      password: String!
      links: [Link!]!
- }
+     votes: [Vote!]!
+}
+
+type Vote {
+     id: ID! @unique
+     link: Link!
+     user: User!
+}
